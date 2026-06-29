@@ -1,26 +1,26 @@
 # 💊 GNN-Based Drug–Drug Interaction (DDI) Prediction
 
-An interactive **Streamlit dashboard** that predicts **Drug–Drug Interactions (DDIs)** using **Graph Neural Networks (GNNs)**. The project demonstrates how graph-based deep learning models outperform traditional machine learning techniques for biomedical interaction prediction through an intuitive analytics dashboard.
+An interactive **Streamlit dashboard** that predicts **Drug–Drug Interactions (DDIs)** using **Graph Neural Networks (GNNs)**. This project demonstrates how graph-based deep learning models outperform traditional machine learning approaches for biomedical interaction prediction through an intuitive analytics dashboard.
 
 ---
 
 ## 📖 Overview
 
-Drug–Drug Interaction (DDI) prediction plays a crucial role in reducing adverse drug reactions and improving patient safety. Since drugs naturally form interconnected networks through their interactions, **Graph Neural Networks (GNNs)** provide an effective way to learn these complex relationships.
+Drug–Drug Interaction (DDI) prediction is an essential task in healthcare, helping identify potentially harmful interactions before medications are prescribed. Since drugs naturally form interconnected networks, **Graph Neural Networks (GNNs)** provide an effective way to model these complex relationships.
 
-This project compares traditional machine learning approaches with graph-based deep learning models and presents the results through an interactive Streamlit application.
+This project compares traditional machine learning algorithms with graph-based deep learning models and presents the results through an interactive Streamlit dashboard.
 
 ---
 
 ## ✨ Features
 
-* 🎨 Interactive **Streamlit** dashboard
-* 🌙 Modern dark-themed UI
+* 🎨 Interactive Streamlit dashboard
+* 🌙 Modern dark-themed interface
 * 📊 Interactive charts and performance visualizations
 * 🧠 Comparison of classical ML and GNN models
 * 📈 Confusion matrix and evaluation metrics
-* 🏆 Best-performing model highlighted with detailed insights
-* 📱 Responsive and easy-to-use interface
+* 🏆 Highlights the best-performing model
+* 📱 Clean and responsive UI
 
 ---
 
@@ -29,7 +29,7 @@ This project compares traditional machine learning approaches with graph-based d
 * Predict Drug–Drug Interactions using graph learning.
 * Compare traditional machine learning algorithms with Graph Neural Networks.
 * Visualize model performance through interactive analytics.
-* Demonstrate the advantages of attention-based graph learning in biomedical applications.
+* Demonstrate the effectiveness of attention-based graph learning in biomedical applications.
 
 ---
 
@@ -43,16 +43,16 @@ This project compares traditional machine learning approaches with graph-based d
 
 ### 2. Feature Learning
 
-Graph Neural Networks generate embeddings by aggregating information from neighboring drugs.
+Graph Neural Networks learn node embeddings by aggregating information from neighboring drugs.
 
-### 3. Models Evaluated
+### 3. Models Used
 
-| Model                             | Description                                                         |
-| --------------------------------- | ------------------------------------------------------------------- |
-| **KNN**                           | Distance-based classification baseline                              |
-| **K-Means**                       | Unsupervised clustering baseline                                    |
-| **GraphSAGE**                     | Neighborhood aggregation Graph Neural Network                       |
-| **Graph Attention Network (GAT)** | Attention-based GNN for learning important neighboring interactions |
+| Model                             | Description                                                                       |
+| --------------------------------- | --------------------------------------------------------------------------------- |
+| **KNN**                           | Distance-based classification baseline                                            |
+| **K-Means**                       | Unsupervised clustering baseline                                                  |
+| **GraphSAGE**                     | Graph Neural Network using neighborhood aggregation                               |
+| **Graph Attention Network (GAT)** | Attention-based Graph Neural Network that assigns importance to neighboring nodes |
 
 ### 4. Evaluation Metrics
 
@@ -64,54 +64,179 @@ Graph Neural Networks generate embeddings by aggregating information from neighb
 
 ---
 
-## 📊 Dashboard Overview
+# 🏗️ System Architecture
 
-### 🏠 Home
+```text
+                           ┌──────────────────────┐
+                           │  Drug Interaction    │
+                           │      Dataset         │
+                           └──────────┬───────────┘
+                                      │
+                                      ▼
+                        ┌──────────────────────────┐
+                        │ Data Preprocessing       │
+                        │ • Data Cleaning          │
+                        │ • Feature Engineering    │
+                        │ • Feature Encoding       │
+                        └──────────┬───────────────┘
+                                   │
+                                   ▼
+                      ┌────────────────────────────┐
+                      │ Graph Construction         │
+                      │ • Drugs → Nodes            │
+                      │ • Interactions → Edges     │
+                      └──────────┬─────────────────┘
+                                 │
+                                 ▼
+                  ┌─────────────────────────────────┐
+                  │ Model Training                  │
+                  │                                 │
+                  │ • KNN                           │
+                  │ • K-Means                       │
+                  │ • GraphSAGE                     │
+                  │ • GAT                           │
+                  └──────────┬──────────────────────┘
+                             │
+                             ▼
+                  ┌────────────────────────────┐
+                  │ Model Evaluation           │
+                  │ • Accuracy                 │
+                  │ • Precision                │
+                  │ • Recall                   │
+                  │ • F1-Score                 │
+                  │ • Confusion Matrix         │
+                  └──────────┬─────────────────┘
+                             │
+                             ▼
+                ┌──────────────────────────────────┐
+                │ Streamlit Interactive Dashboard  │
+                │                                  │
+                │ • KPI Cards                      │
+                │ • Charts & Graphs                │
+                │ • Model Comparison               │
+                │ • Performance Insights           │
+                └──────────────────────────────────┘
+```
 
-* Project overview
+---
+
+# 🔄 Project Workflow
+
+```text
+Dataset
+   │
+   ▼
+Data Cleaning & Feature Extraction
+   │
+   ▼
+Graph Construction
+(Nodes = Drugs, Edges = Drug Interactions)
+   │
+   ▼
+Graph Representation Learning
+(GraphSAGE / GAT)
+   │
+   ▼
+Model Training
+   │
+   ▼
+Prediction
+   │
+   ▼
+Performance Evaluation
+   │
+   ▼
+Interactive Streamlit Dashboard
+```
+
+### Workflow Steps
+
+1. **Dataset Collection**
+
+   * Load the Drug–Drug Interaction dataset.
+   * Identify drugs and their known interactions.
+
+2. **Data Preprocessing**
+
+   * Handle missing values.
+   * Encode and normalize features.
+   * Prepare data for graph construction.
+
+3. **Graph Construction**
+
+   * Represent drugs as nodes.
+   * Represent interactions as edges.
+   * Build the biomedical interaction graph.
+
+4. **Model Training**
+
+   * Train baseline models (**KNN** and **K-Means**).
+   * Train graph neural networks (**GraphSAGE** and **GAT**).
+   * Learn graph embeddings.
+
+5. **Prediction**
+
+   * Predict whether two drugs interact.
+   * Generate interaction probabilities.
+
+6. **Evaluation**
+
+   * Compare all models using Accuracy, Precision, Recall, F1-Score, and Confusion Matrix.
+
+7. **Visualization**
+
+   * Present results through the Streamlit dashboard using interactive charts and model comparisons.
+
+---
+
+## 📊 Dashboard Sections
+
+### 🏠 Overview
+
+* Project introduction
 * Drug interaction problem statement
 * Dataset summary
 * Key performance indicators
 
 ### 🤖 Models
 
-* Introduction to traditional ML models
+* Traditional Machine Learning models
 * Graph Neural Network concepts
-* Working principles of GraphSAGE and GAT
+* GraphSAGE and GAT overview
 
 ### 📈 Results
 
-* Model comparison charts
-* Accuracy trends
+* Accuracy comparison
+* Multi-metric comparison
 * Confusion matrix
-* Precision, Recall and F1-score comparison
-* Best model analysis
+* Model-wise analysis
+* Best model insights
 
 ### 🔮 Future Scope
 
+* Hybrid GNN + Transformer architectures
 * Larger biomedical datasets
-* Explainable AI for healthcare
-* Transformer + GNN hybrid architectures
-* Cloud deployment
+* Explainable AI (XAI)
 * Clinical decision support integration
+* Cloud deployment
 
 ---
 
-## 📊 Results
+## 📊 Results Summary
 
-| Model                             | Accuracy         |
-| --------------------------------- | ---------------- |
-| KNN                               | Baseline         |
-| K-Means                           | Baseline         |
-| GraphSAGE                         | High Performance |
-| **Graph Attention Network (GAT)** | **~91%** ⭐       |
+| Model                             | Performance         |
+| --------------------------------- | ------------------- |
+| KNN                               | Baseline            |
+| K-Means                           | Baseline            |
+| GraphSAGE                         | High Performance    |
+| **Graph Attention Network (GAT)** | **~91% Accuracy ⭐** |
 
 ### Key Findings
 
-* ✅ Graph-based learning significantly outperforms traditional machine learning.
-* ✅ Graph Attention Networks capture complex drug relationships more effectively.
-* ✅ Attention mechanisms improve prediction accuracy by focusing on important neighboring nodes.
-* ✅ GAT achieved the best overall performance with approximately **91% accuracy**.
+* Graph-based models outperform traditional machine learning approaches.
+* GAT captures complex relationships more effectively through its attention mechanism.
+* Attention-based learning improves prediction accuracy by prioritizing important neighboring nodes.
+* **Graph Attention Network (GAT)** achieved the highest overall performance with approximately **91% accuracy**.
 
 ---
 
@@ -150,11 +275,11 @@ GNN-DDI-Prediction/
 │
 ├── app.py                  # Main Streamlit application
 ├── data/                   # Dataset files
-├── models/                 # ML & GNN model implementations
-├── notebooks/              # Experiments and training notebooks
-├── results/                # Saved outputs and visualizations
-├── assets/                 # Images and dashboard resources
-├── requirements.txt        # Project dependencies
+├── models/                 # ML & GNN implementations
+├── notebooks/              # Experiments
+├── results/                # Outputs & visualizations
+├── assets/                 # Images and resources
+├── requirements.txt
 └── README.md
 ```
 
@@ -174,7 +299,7 @@ Navigate to the project directory:
 cd GNN-DDI-Prediction
 ```
 
-Install dependencies:
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -184,25 +309,25 @@ pip install -r requirements.txt
 
 ## ▶️ Running the Application
 
-Launch the Streamlit dashboard:
+Start the Streamlit application:
 
 ```bash
 streamlit run app.py
 ```
 
-The application will start locally and open in your default web browser.
+Once launched, the dashboard will open in your default web browser.
 
 ---
 
 ## 🚀 Future Enhancements
 
-* Integrate larger public biomedical datasets
-* Support multi-class DDI prediction
-* Add Explainable AI (XAI) visualizations
-* Deploy using Docker and Streamlit Cloud
-* REST API integration
-* Real-time prediction interface
-* Transformer-GNN hybrid architectures
+* Integration with larger biomedical datasets
+* Multi-class DDI prediction
+* Explainable AI (XAI) visualizations
+* REST API support
+* Docker and Streamlit Cloud deployment
+* Real-time prediction system
+* Transformer-GNN hybrid models
 * Drug recommendation system
 
 ---
@@ -211,39 +336,23 @@ The application will start locally and open in your default web browser.
 
 Contributions are welcome!
 
-If you would like to improve the project:
-
-1. Fork the repository
-2. Create a feature branch
+1. Fork the repository.
+2. Create a new feature branch.
 
 ```bash
 git checkout -b feature/YourFeature
 ```
 
-3. Commit your changes
+3. Commit your changes.
 
 ```bash
 git commit -m "Add new feature"
 ```
 
-4. Push to GitHub
+4. Push the branch.
 
 ```bash
 git push origin feature/YourFeature
 ```
 
-5. Open a Pull Request
-
----
-
-## 📜 License
-
-This project is intended for educational and research purposes. You may modify and use it under the appropriate open-source license of your choice.
-
----
-
-## 👨‍💻 Author
-
-**Tanish Shetty**
-
-If you found this project helpful, consider giving the repository a ⭐ on GitHub!
+5. Open a Pull Request.
